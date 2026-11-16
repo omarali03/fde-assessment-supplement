@@ -1,0 +1,13 @@
+BENCHMARK – MEASURED, SYNTHETIC DATA
+date: 2026-11-15   machine: Apple M1 Pro, 8 logical CPUs (single-threaded run), Darwin 25.1.0, Python 3.11.18
+config: default   candidates: 100,000 synthetic (from 16 real templates, seed 7)
+runs per job: 10   duplicate detection: skipped (duplicates={})
+setup: load + replay 0.01s, generate candidates 0.90s
+
+job       evaluated not elig.    p50 s    p95 s  µs/cand (p50)
+J1           87,500    12,500    21.87    25.49          218.7
+J2           12,500    87,500     1.84     3.07           18.4
+VMS-904      87,500    12,500    16.64    19.19          166.4
+
+One run = gates, requirement checks, score and ranking for every candidate against one job.
+Not eligible = removed at the profession gate (cheap), so jobs differ in cost.

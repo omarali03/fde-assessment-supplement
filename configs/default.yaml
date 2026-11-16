@@ -1,0 +1,34 @@
+# Default matching configuration.
+# None of these values are agreed with the client yet (see DISC-06); they are starting points.
+name: default
+
+# Component weights for the score (normalised by their sum).
+weights:
+  requirements: 0.40   # share of published required items the candidate meets
+  experience: 0.20     # dated years in the job's setting vs. the years asked for
+  logistics: 0.30      # location, start date, shift availability, pay gates that pass
+  preferred: 0.10      # share of "preferred" items met
+
+thresholds:
+  strong_min_score: 0.75   # a candidate meeting everything still needs this score to be Strong
+
+# Scores within this margin are a tie (shown as tied unless a tie-breaker separates them).
+tie_margin: 0.01
+
+# Applied in order to separate scores inside the tie margin. Allowed values:
+#   fewer_open_questions, earliest_start, more_independent_evidence, freshest_evidence
+# Protected attributes (name, age, gender, ...) are rejected by the config loader.
+tie_breakers:
+  - fewer_open_questions
+  - earliest_start
+
+# Used for the experience component when the job states no minimum.
+experience_cap_years: 5
+
+# Base-profile text similarity (Jaccard of words) at or above which two candidates of the same
+# profession are flagged "possible duplicate – unconfirmed". They are never merged.
+duplicate_similarity: 0.5
+
+# Exceptions a recruiter / account manager has confirmed in writing. None exist yet.
+# Example: {job: J1, candidate: C1, field: start_date, source: "AM email 2026-11-08"}
+confirmed_exceptions: []

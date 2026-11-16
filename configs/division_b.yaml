@@ -1,0 +1,24 @@
+# Division B: an example of a division that prioritises depth of experience and evidence over
+# logistics fit. Illustrative only; not an agreed client configuration.
+name: division_b
+
+weights:
+  requirements: 0.30
+  experience: 0.45
+  logistics: 0.15
+  preferred: 0.10
+
+thresholds:
+  strong_min_score: 0.70
+
+tie_margin: 0.02
+
+tie_breakers:
+  - more_independent_evidence
+  - freshest_evidence
+
+experience_cap_years: 8
+
+duplicate_similarity: 0.5
+
+confirmed_exceptions: []
